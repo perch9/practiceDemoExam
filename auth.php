@@ -6,7 +6,7 @@ $postData = file_get_contents('php://input');
 $data = json_decode($postData);
  
 $login = $data->login;
-$password = $data->password;
+$password = md5($data->password);
  
 $sql_request = "SELECT id, login, role, first_name, last_name
                 FROM table_users
